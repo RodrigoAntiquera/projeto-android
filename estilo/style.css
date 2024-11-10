@@ -1,0 +1,232 @@
+@charset "UTF-8"; /*SERVE PARA CONFIGURAR O TEXTO PARA OS PARAMETROS EM PORTUGES(ACENTO ETC) */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Ga+Maamli&display=swap'); /*SERVE PARA CONFIGURAR FONTE DO TEXTO */
+
+@font-face {
+    font-family: 'Android';
+    src: url('../fontes/idroid.otf') format('opentype'); /* um ponto . significa pasta atual 2 pontos .. significa pasta anterior e o barra / sgnifica abrir */
+    font-weight: normal;
+}
+
+/* quando coloco o seletor *, eu crio uma confiuração global, ou seja, tudo que fizer valerá para todos os elementos */
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+
+:root { /* seleciono o elemento raiz html e faço definições globais, tudo aq serve pra todo o documento, usado principalmente com variaves que usarei por todo o site facilitando o processo, ao inves de ir item a item, so usar o root e mudar de uma vez*/
+
+--cor0:#c5ebd6; /* tudo com -- em css é uma variavel. no caso fiz variavel pra cor. */
+--cor1:#83e1ad;
+--cor2:#3ddc84;
+--cor3:#2fa866;
+--cor4:#1a5c37;
+--cor5:#063d1e; 
+
+--fonte-padrao:Arial, Verdana, Helvetica, sans-serif; /* variavel para fontes */
+--fonte-destaque:"Bebas Neue", sans-serif;
+--font-android: 'Android', cursive;
+}
+
+body {
+    background-color:var(--cor0) ; /* cor do fundo da tela usando a variavel 0 criado acima */
+    font-family: var(--fonte-padrao); /* chamei a varivel de fonte, criado acima. */ 
+}
+
+a.externo::after { /* todo linnk (a) da classe (.) externo terá depois dele (::after) (:: significa pseudoelemento) as propriedades abaixo.  */ /* para isso precisamos criar a CLASSE "externo" no html */
+    content: '\00a0\1F517'; /*  É necessário incluir a propriedade content para definir o que será adicionado, mesmo que seja uma string vazia (content: "")*/
+}
+
+iframe {
+    border-radius: 10px;;
+}
+
+
+
+header {
+    background-image: linear-gradient(to bottom, var(--cor3), var(--cor5));
+    background-color:var(--cor4);
+    min-height: 150px; /* um elemento terá, independente do dispositivo,no MINIMO, 150px*/ 
+    text-align: center; /* o texto estará sempre centralizado*/
+    padding-top: 40px; /* O padding é o espaço entre o conteúdo de um elemento e sua borda*/
+}
+
+header > h1 {
+
+    color: white; /*cor branca  */
+    font-family: var(--fonte-destaque);
+    font-size: 3em; /* 3x o tamanho do elemento pai. o pai pode variar, mas a declaração triplica*/
+    font-weight: normal; /*por padrão o h1 sempre é negrito , então tirei manualmente, mas não é obriagado. */
+    margin-bottom: 20px; /*margin-bottom: 20px; adiciona uma distância de 20 pixels abaixo do elemento, evitando que ele toque diretamente no próximo elemento ou borda */
+    text-shadow:2px 2px 0px rgba(0, 0, 0, 0.452) /* 1°é sombra direita( negativo pra esquerda), 2° é sombra vertical(negativo pra cima), 3° grau de desfoque */
+    
+
+    
+}
+header > p {
+    font-family: var(--fonte-padrao);
+    font-size: 1.2em;
+    color:white;
+    padding-left: 10px;
+    padding-right: 10px;
+    max-width: 500px; /* tamanho maximo do elemento, independente do quanto seja grande a tela.*/
+    margin:auto; /* Alinha um elemento horizontalmente no centro do seu contêiner pai.Usado em elementos com largura definida (exemplo: width: 50%; ou max-width: 500px;).*/
+    margin-bottom: 20px;
+    text-shadow:2px 2px 0px rgba(0, 0, 0, 0.452)
+
+    /*diferença de margin auto e text align:
+    
+    margin: auto;: Centraliza elementos de BLOCO horizontalmente.
+    text-align: Centraliza ou alinha o conteúdo de texto e elementos INLINE dentro de um elemento de bloco.*/
+
+}
+
+nav {
+    background-color: var(--cor5);
+    padding: 10px;
+    box-shadow:0px 7px 7px rgba(0, 0, 0, 0.199);
+}
+
+nav > a {
+    color: var(--cor1);
+    padding: 10px;
+    text-decoration: none; /*usada para remover qualquer estilo de decoração aplicado ao texto, como sublinhado, sobrelinha ou riscado. É comumente usada em links (<a>) para remover o sublinhado padrão que aparece neles. */
+    font-weight: bold; /* deixar com PESO, em negrito*/
+    transition-duration: .5s; /*efeito de transição pra aplicação, escolhi meio segundo. */
+}
+nav > a:hover{ /* dentro do nav, criei um filho link, sob a pseudoclasse hover, que faz animaçoes quando passo o mouse em cima do elemento*/
+    background-color: var(--cor4); /* o elemento ficará com background color var 4. ja definimos as variaves no root.*/
+    border-radius: 5px; /* arredondei borda do hover em 5px*/
+}
+main {
+    min: width 300px;
+    max-width: 1000px;
+    margin:auto;
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    border-bottom-left-radius: 10px; /*Arredondar a borda inferior esquerda */
+    border-bottom-right-radius: 10px; /* arredondar a borda inferior direita*/
+
+}
+
+main h1 {
+    color:var(--cor5) ;
+    font-family: var(--font-android);
+    font-weight: normal;
+    font-size: 1.8em;
+}
+
+main h2 {
+    font-family: var(--font-android);
+    color: var(--cor4);
+    font: size 1.3em;
+    background-image: linear-gradient(to right, var(--cor1), transparent); /* Aqui criei um degrade atras do h2, onde ele vai da esquerda pra direita (to right) se baseando da var cor 1 , ate ficar transparente (transparent)*/
+    text-indent: 8px;
+    font-weight: normal;
+}
+
+main p { /*não usei como filho > pois seria algo especifico, nesse caso todo paragrafo dentro de toda main tera essa config, o filho precisa ser mais detalhado */
+
+    margin: 15px 0px 15px 0px ; /*cima direita baixo esquerda. Ou seja, criei um espaço de margem somente em cima e em baixo pra não ficar tudo grudado. */
+
+    text-align: justify; /*deixo o texto justificado */
+    
+    text-indent: 30px; /* crio uma identação pra identificar o inicio do paragrafo (dois dedinhos)*/
+
+    line-height: 2em; /*altura entre uma linha e outra. aqui ficou 2em que significa duas vezes o tamanho padrão do espaçamento.Bom para */
+}
+main strong { /* tudo que for destaque(strong) em qualquer main terá essas declarações. */
+    color: var(--cor4);
+    font-weight: bold; /* aqui é como deixo em negrito, como uma forma de destaque*/
+}
+main a {
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+    background-color: var(--cor2);
+}
+main a:hover {
+    text-decoration:underline;
+    color:var(--cor4);
+}
+
+main img {
+    width: 100%; /* deixo a imagem na tela toda em quaquer tamanho automaticamente */
+}
+
+main img.pequena {
+    max-width: 350px; /* a imagem tem 400px, usei max de 350 para não saturar a imagem em nenhum tamanho*/
+    display:block; /*como imagem não é bloco e precisa ser para o usar o margin auto, transformei atraves do display>bloco */
+    margin:auto;
+    
+}
+div.video {
+    background-color:var(--cor5) ;
+    margin: 0px -20px 30px -20px;
+    padding: 20px;
+    padding-bottom: 56.25%;
+
+    position: relative; /* */
+}
+
+div.video > iframe {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+
+}
+
+
+aside {
+    background-color: var(--cor1);
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.288);
+    margin: 10px;
+}
+
+aside > h3 {
+    background-color: var(--cor4);
+    color: white;
+    padding: 5px;
+    margin: -10px -10px 0px -10px; /*top right bottom left - Valores negativos "puxam" o elemento na direção indicada, enquanto valores positivos aumentam o espaço ao redor do elemento. */
+    border-radius:10px 10px 0px 0px; /* canto superior esquerdo , canto superior direito, canto inferior direito, canto inferior direito. SENTIDO HORARIO COMEÇANDO DO SUPERIOR ESQUERDO. ou seja, so arredondou os superiores.*/
+}
+
+aside > ul {
+    list-style-position: inside; /* as marcações da coluna estavam fora, com essa tag elas ficam dentro(inside), deixando mais bonito, nesse contexto */
+
+    columns: 2; /* criei duas colunas para a lista. Posso criar quantas quise,mas recomendado uma ou duas*/
+
+    border-radius: 20px;
+
+    list-style-type: '\1F5F8\00a0\00a0';
+    /* mudei o estilo da marcação, no site emojipedia, escolho algum e em codepoints copio num. depois do u+, colo aqui e acrescento \ barra invertida dentro de aspa simples '  ' 
+     esse \00a0 serve pra dar espaçamento entre a marcação e os os caracteres. No caso usei 2 espaços . NÃO É COMPATIVEL COM TODOS OS NAVEGADORES!!!*/ 
+    
+
+    
+
+}
+footer {
+    background-color: var(--cor5);
+    color: white;
+    text-align:center;
+    font-size: 0.8em;
+}
+
+footer a {
+    color: white;
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration:underline;
+    color:var(--cor1); 
+}
