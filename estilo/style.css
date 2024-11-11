@@ -72,7 +72,7 @@ header > p {
     padding-right: 10px;
     max-width: 500px; /* tamanho maximo do elemento, independente do quanto seja grande a tela.*/
     margin:auto; /* Alinha um elemento horizontalmente no centro do seu contêiner pai.Usado em elementos com largura definida (exemplo: width: 50%; ou max-width: 500px;).*/
-    margin-bottom: 20px;
+    padding-bottom: 50px;
     text-shadow:2px 2px 0px rgba(0, 0, 0, 0.452)
 
     /*diferença de margin auto e text align:
